@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:test.properties"/>
+    
+    <!-- external change of implementation -->
+    <bean id="trackCoach" class="com.luv2code.springdemo.TrackCoachOldStyle">
+        <property name="myProperty" value="12" />
+    </bean>
+    
+    <bean id="fortuneTellingCoach" class="com.luv2code.springdemo.FortuneTellingCoach">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+    
+    <bean id="cricketCoach" class="com.luv2code.springdemo.CricketCoach">
+        <property name="FortuneService" ref="myFortuneService"/>
+        <property name="injectedValue" value="injected value typed by hand in xml config"/>
+    </bean>
+
+    <bean id="toPropsWiredCoach" class="com.luv2code.springdemo.ToPropsWiredCoach">
+        <property name="FortuneService" ref="myFortuneService" />
+        <property name="prop1" value="${foo}" />
+        <property name="prop2" value="${bar}" />
+    </bean>
+    
+    <bean id="randomCoach" class="com.luv2code.springdemo.RandomizedFortuneCoach">
+        <property name="FortuneService" ref="myRandomizedFortuneService"/>
+    </bean>
+
+    <bean id="myFortuneService" class="com.luv2code.springdemo.DailyFortune">
+    </bean>
+    
+    <bean id="myRandomizedFortuneService" class="com.luv2code.springdemo.RandomFortune">
+    </bean>
+
+</beans>
