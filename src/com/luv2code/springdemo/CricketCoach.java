@@ -3,10 +3,8 @@ package com.luv2code.springdemo;
 public class CricketCoach implements Coach {
 
 	FortuneService service;
-	String InjectedValue;
+	String injectedValue;
 	
-
-
 	public CricketCoach (){}
 	
 	@Override
@@ -16,10 +14,10 @@ public class CricketCoach implements Coach {
 	}
 
 	public void setInjectedValue(String injectedValue) {
-		InjectedValue = injectedValue;
+		this.injectedValue = injectedValue;
 	}
 	
-	String getInjectedValue(){return InjectedValue;}
+	String getInjectedValue(){return injectedValue;}
 	
 	public void setFortuneService(FortuneService service){this.service = service;}
 	
