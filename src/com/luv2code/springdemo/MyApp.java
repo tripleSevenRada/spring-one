@@ -29,6 +29,5 @@ public class MyApp {
 		
 		context.close();
 	
-		 
 	}
 }

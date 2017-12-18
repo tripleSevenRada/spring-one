@@ -7,9 +7,11 @@ public class CricketCoach implements Coach {
 	
 	public CricketCoach (){}
 	
+	public void initStuff(){System.out.println("initStuff in CricketCoach");}
+	public void destroyStuff(){System.out.println("destroyStuff in CricketCoach");}
+	
 	@Override
 	public String getDailyWorkout() {
-        
 		return "Cricket practise and " + service.getFortune();
 	}
 

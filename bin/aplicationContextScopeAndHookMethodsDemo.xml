@@ -14,7 +14,9 @@
     </bean>
     
     <bean id="cricketCoachPrototype" class="com.luv2code.springdemo.CricketCoach"
-    		scope="prototype">
+    		
+    		init-method="initStuff"
+    		destroy-method="destroyStuff">
         <property name="FortuneService" ref="myFortuneService"/>
         <property name="InjectedValue" value="injected value typed by hand in xml config PROTOTYPE VERSION"/>
     </bean>
