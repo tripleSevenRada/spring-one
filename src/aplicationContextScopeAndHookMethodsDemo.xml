@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+  
+    <bean id="cricketCoachSingleton" class="com.luv2code.springdemo.CricketCoach">
+        <property name="FortuneService" ref="myFortuneService"/>
+        <property name="InjectedValue" value="injected value typed by hand in xml config SINGLETON VERSION"/>
+        
+    </bean>
+    
+    <bean id="cricketCoachPrototype" class="com.luv2code.springdemo.CricketCoach"
+    		
+    		init-method="initStuff"
+    		destroy-method="destroyStuff">
+        <property name="FortuneService" ref="myFortuneService"/>
+        <property name="InjectedValue" value="injected value typed by hand in xml config PROTOTYPE VERSION"/>
+    </bean>
+
+    <bean id="myFortuneService" class="com.luv2code.springdemo.DailyFortune">
+    </bean>
+    
+</beans>
